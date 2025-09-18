@@ -3,64 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Apex American Innovations | Elite Tech Solutions & Screen Repair">
-    <meta name="description" content="Apex American Innovations delivers cutting-edge custom software, mobile apps, security audits, financial tools, and screen repair services with free consultations.">
-    <meta name="keywords" content="apex american innovations, custom software, screen repair, mobile apps, financial tools, free consultation, tech solutions">
-    <meta name="robots" content="index, follow">
-    <title>Apex American Innovations | Elite Tech Solutions</title>
+    <title>Elite Development Services | TradeHax</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Apex American Innovations",
-            "description": "Elite tech solutions including custom software, mobile apps, screen repair, and financial tools.",
-            "url": "https://tradehax.net",
-            "telephone": "+1-800-555-1234",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Your City",
-                "addressRegion": "Your State",
-                "postalCode": "12345",
-                "addressCountry": "US"
-            },
-            "sameAs": [
-                "https://tradehax.net",
-                "https://www.facebook.com/apexamericaninnovations",
-                "https://twitter.com/apexamerican"
-            ],
-            "service": [
-                {
-                    "@type": "Service",
-                    "name": "Custom Software Development",
-                    "description": "Tailored software solutions for businesses and individuals."
-                },
-                {
-                    "@type": "Service",
-                    "name": "Screen Repair Services",
-                    "description": "Professional screen replacement with $60 labor plus parts."
-                }
-            ]
-        }
-    </script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .neon-glow { text-shadow: 0 0 5px #ea00d9; }
-        .btn-neon { transition: all 0.3s; box-shadow: 0 0 10px #ea00d9; }
-        .btn-neon:hover { box-shadow: 0 0 20px #ea00d9; transform: scale(1.05); }
-        .tab-active { background: #ea00d9; color: #091833; }
-    </style>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        darkNavy: '#091833',
-                        neonPink: '#ea00d9',
-                        electricCyan: '#0abdc6',
-                        deepPurple: '#711c91',
-                        neonGreen: '#00ff00',
+                        techBlue: '#0A2540',
+                        cyanAccent: '#00D1FF',
+                        neutralGray: '#6B7280',
+                        lightGray: '#F3F4F6',
+                        warmAmber: '#F59E0B',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -68,227 +23,191 @@
                 }
             }
         }
-        // Working Tabs Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.filter-btn');
-            const cards = document.querySelectorAll('.service-card');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('tab-active'));
-                    tab.classList.add('tab-active');
-                    const filter = tab.textContent.toLowerCase();
-                    cards.forEach(card => {
-                        if (filter === 'all services' || card.dataset.category === filter) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            // Button Links to Contact
-            document.querySelectorAll('.get-quote').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-                });
-            });
-        });
     </script>
 </head>
-<body class="bg-darkNavy text-white">
+<body class="font-sans antialiased bg-lightGray text-techBlue">
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-deepPurple via-darkNavy to-neonPink text-white py-20 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-neonPink/10 to-electricCyan/10"></div>
+    <section class="bg-gradient-to-br from-techBlue to-gray-800 text-white py-20 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-cyanAccent/5 to-transparent"></div>
         <div class="container mx-auto text-center relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 neon-glow">Apex American Innovations</h1>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">Elite Development Services</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">From system hacking to custom software, mobile apps to financial tools—we deliver cutting-edge solutions tailored to your needs.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="#contact" class="bg-neonPink hover:bg-pink-600 text-white px-8 py-4 rounded-lg font-semibold btn-neon transition-all duration-300">Get Free Consultation</a>
-                <a href="#portfolio" class="border-2 border-electricCyan text-electricCyan px-8 py-4 rounded-lg font-semibold btn-neon transition-all duration-300 hover:bg-electricCyan hover:text-darkNavy">View Portfolio</a>
+                <a href="#contact" class="bg-cyanAccent hover:bg-cyan-400 text-techBlue px-8 py-4 rounded-lg font-semibold transition-all duration-300">Get Free Consultation</a>
+                <a href="#portfolio" class="border-2 border-cyanAccent text-cyanAccent px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-cyanAccent hover:text-techBlue">View Portfolio</a>
             </div>
             <!-- Stats Grid -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-4 text-center border border-neonPink/20">
-                    <div class="text-2xl font-bold text-neonPink">500+</div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-cyanAccent">500+</div>
                     <div class="text-sm text-gray-300">Projects Completed</div>
                 </div>
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-4 text-center border border-neonGreen/20">
-                    <div class="text-2xl font-bold text-neonGreen">50+</div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-cyanAccent">50+</div>
                     <div class="text-sm text-gray-300">Custom ROMs</div>
                 </div>
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-4 text-center border border-electricCyan/20">
-                    <div class="text-2xl font-bold text-electricCyan">100+</div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-cyanAccent">100+</div>
                     <div class="text-sm text-gray-300">Trading Bots</div>
                 </div>
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-4 text-center border border-neonPink/20">
-                    <div class="text-2xl font-bold text-neonPink">24/7</div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-cyanAccent">24/7</div>
                     <div class="text-sm text-gray-300">Support</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Expertise Section with Working Tabs -->
-    <section class="py-16 px-4 bg-darkNavy">
+    <!-- Expertise Section -->
+    <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 neon-glow">Our Expertise</h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto">Specialized in advanced development, security, and automation solutions. Every project is unique—contact us for a free consultation and custom estimate.</p>
+                <h2 class="text-4xl font-bold mb-4">Our Expertise</h2>
+                <p class="text-lg text-neutralGray max-w-2xl mx-auto">Specialized in advanced development, security, and automation solutions. Every project is unique—contact us for a free consultation and custom estimate.</p>
             </div>
-            <!-- Filter Tabs -->
+            <!-- Filters -->
             <div class="flex flex-wrap justify-center gap-2 mb-8">
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-neonPink/20 text-neonPink hover:bg-neonPink/30 transition-all tab-active">All Services</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-electricCyan hover:bg-deepPurple/30 transition-all">Development</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-neonPink hover:bg-deepPurple/30 transition-all">Security</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-electricCyan hover:bg-deepPurple/30 transition-all">Mobile</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-electricCyan hover:bg-deepPurple/30 transition-all">Finance</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-neonGreen hover:bg-deepPurple/30 transition-all">Automation</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-electricCyan hover:bg-deepPurple/30 transition-all">Marketing</button>
-                <button class="filter-btn px-4 py-2 rounded-lg text-sm font-medium bg-deepPurple/20 text-gray-300 hover:bg-deepPurple/30 transition-all">Optimization</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">All Services</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Development</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Security</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Mobile</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Finance</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Automation</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Marketing</button>
+                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Optimization</button>
             </div>
             <!-- Services Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-neonPink/20 hover:shadow-neonPink/30 transition-all" data-category="security">
-                    <div class="w-12 h-12 bg-neonPink/20 rounded-lg flex items-center justify-center mb-4 text-neonPink text-2xl">🔒</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔒</div>
                     <h3 class="text-xl font-semibold mb-2">System Hacking & Security</h3>
-                    <p class="text-gray-300 mb-4">Advanced penetration testing, vulnerability assessments, and security audits for your systems.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Advanced penetration testing, vulnerability assessments, and security audits for your systems.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-neonGreen/20 hover:shadow-neonGreen/30 transition-all" data-category="security">
-                    <div class="w-12 h-12 bg-neonGreen/20 rounded-lg flex items-center justify-center mb-4 text-neonGreen text-2xl">📱</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
                     <h3 class="text-xl font-semibold mb-2">Custom ROMs & Jailbreaks</h3>
-                    <p class="text-gray-300 mb-4">Custom firmware development, bootloader unlocking, device rooting, and iOS jailbreaking.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Custom firmware development, bootloader unlocking, device rooting, and iOS jailbreaking.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-electricCyan/20 hover:shadow-electricCyan/30 transition-all" data-category="optimization">
-                    <div class="w-12 h-12 bg-electricCyan/20 rounded-lg flex items-center justify-center mb-4 text-electricCyan text-2xl">🔧</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔧</div>
                     <h3 class="text-xl font-semibold mb-2">System Upgrades</h3>
-                    <p class="text-gray-300 mb-4">Hardware and software upgrades, performance optimization, and system modernization.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Hardware and software upgrades, performance optimization, and system modernization.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-electricCyan/20 hover:shadow-electricCyan/30 transition-all" data-category="development">
-                    <div class="w-12 h-12 bg-electricCyan/20 rounded-lg flex items-center justify-center mb-4 text-electricCyan text-2xl">🌐</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🌐</div>
                     <h3 class="text-xl font-semibold mb-2">Website Development</h3>
-                    <p class="text-gray-300 mb-4">Full-stack web development, responsive design, e-commerce solutions, and modern web applications.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Full-stack web development, responsive design, e-commerce solutions, and modern web applications.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-neonPink/20 hover:shadow-neonPink/30 transition-all" data-category="development">
-                    <div class="w-12 h-12 bg-neonPink/20 rounded-lg flex items-center justify-center mb-4 text-neonPink text-2xl">💻</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💻</div>
                     <h3 class="text-xl font-semibold mb-2">Custom Software Development</h3>
-                    <p class="text-gray-300 mb-4">Desktop applications, enterprise software, automation tools, and bespoke software solutions.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Desktop applications, enterprise software, automation tools, and bespoke software solutions.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-neonGreen/20 hover:shadow-neonGreen/30 transition-all" data-category="mobile">
-                    <div class="w-12 h-12 bg-neonGreen/20 rounded-lg flex items-center justify-center mb-4 text-neonGreen text-2xl">🛠️</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-warmAmber/10 rounded-lg flex items-center justify-center mb-4 text-warmAmber text-2xl">🛠️</div>
                     <h3 class="text-xl font-semibold mb-2">Screen Repair Services</h3>
-                    <p class="text-gray-300 mb-4">Professional screen replacement for all devices. $60 labor cost plus parts - quality repairs with warranty and fast turnaround.</p>
-                    <div class="text-sm text-neonGreen font-semibold mb-4">$60 + Parts</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Professional screen replacement for all devices. $60 labor cost plus parts - quality repairs with warranty and fast turnaround.</p>
+                    <div class="text-sm text-warmAmber font-semibold mb-4">$60 + Parts</div>
+                    <button class="w-full bg-warmAmber hover:bg-amber-500 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-electricCyan/20 hover:shadow-electricCyan/30 transition-all" data-category="mobile">
-                    <div class="w-12 h-12 bg-electricCyan/20 rounded-lg flex items-center justify-center mb-4 text-electricCyan text-2xl">📱</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
                     <h3 class="text-xl font-semibold mb-2">Mobile App Development</h3>
-                    <p class="text-gray-300 mb-4">Native and cross-platform mobile applications for iOS and Android with modern features.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Native and cross-platform mobile applications for iOS and Android with modern features.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-electricCyan/20 hover:shadow-electricCyan/30 transition-all" data-category="automation">
-                    <div class="w-12 h-12 bg-electricCyan/20 rounded-lg flex items-center justify-center mb-4 text-electricCyan text-2xl">🤖</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🤖</div>
                     <h3 class="text-xl font-semibold mb-2">Bot Development</h3>
-                    <p class="text-gray-300 mb-4">Trading bots, automation bots, chatbots, social media bots, and AI-powered solutions.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Trading bots, automation bots, chatbots, social media bots, and AI-powered solutions.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-darkNavy rounded-lg shadow-lg p-6 border border-electricCyan/20 hover:shadow-electricCyan/30 transition-all" data-category="finance">
-                    <div class="w-12 h-12 bg-electricCyan/20 rounded-lg flex items-center justify-center mb-4 text-electricCyan text-2xl">💹</div>
+                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💹</div>
                     <h3 class="text-xl font-semibold mb-2">Financial Software & Trading Tools</h3>
-                    <p class="text-gray-300 mb-4">Stock analysis tools, crypto trading platforms, portfolio trackers, and financial dashboards.</p>
-                    <div class="text-sm text-neonGreen mb-4">Hourly Rate</div>
-                    <button class="get-quote w-full bg-neonPink hover:bg-pink-600 text-white py-3 rounded-lg font-semibold btn-neon transition-all">Get Quote</button>
+                    <p class="text-neutralGray mb-4">Stock analysis tools, crypto trading platforms, portfolio trackers, and financial dashboards.</p>
+                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
+                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Transparent Pricing Section -->
-    <section class="bg-gradient-to-r from-deepPurple to-neonPink py-16 px-4 text-white">
+    <section class="bg-gradient-to-r from-techBlue to-gray-800 py-16 px-4 text-white">
         <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4 neon-glow">Transparent Hourly Pricing</h2>
+            <h2 class="text-4xl font-bold mb-4">Transparent Hourly Pricing</h2>
             <p class="text-xl mb-8 max-w-4xl mx-auto">All services are billed hourly for maximum transparency. However, we provide FREE initial consultations and estimates for every project.</p>
             <div class="flex flex-wrap justify-center gap-6">
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-6 max-w-sm border border-electricCyan/20">
-                    <h3 class="text-xl font-semibold mb-2 text-electricCyan">Complete Transparency</h3>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-sm">
+                    <h3 class="text-xl font-semibold mb-2 text-cyanAccent">Complete Transparency</h3>
                 </div>
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-6 max-w-sm border border-neonPink/20">
-                    <h3 class="text-xl font-semibold mb-2 text-neonPink">No Hidden Costs</h3>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-sm">
+                    <h3 class="text-xl font-semibold mb-2 text-cyanAccent">No Hidden Costs</h3>
                 </div>
-                <div class="bg-darkNavy/50 backdrop-blur-sm rounded-lg p-6 max-w-sm border border-neonGreen/20">
-                    <h3 class="text-xl font-semibold mb-2 text-neonGreen">Flexible Scaling</h3>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-sm">
+                    <h3 class="text-xl font-semibold mb-2 text-cyanAccent">Flexible Scaling</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="py-16 px-4 bg-darkNavy">
+    <section class="py-16 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 neon-glow">Our Process</h2>
-                <p class="text-lg text-gray-300">From consultation to delivery, we ensure transparent communication and quality results.</p>
+                <h2 class="text-4xl font-bold mb-4">Our Process</h2>
+                <p class="text-lg text-neutralGray">From consultation to delivery, we ensure transparent communication and quality results.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-neonPink rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">1</div>
+                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">1</div>
                     <h3 class="text-xl font-semibold mb-2">Free Consultation</h3>
-                    <p class="text-gray-300">Discuss your project requirements and get expert advice at no cost.</p>
+                    <p class="text-neutralGray">Discuss your project requirements and get expert advice at no cost.</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-electricCyan rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">2</div>
+                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">2</div>
                     <h3 class="text-xl font-semibold mb-2">Custom Estimate</h3>
-                    <p class="text-gray-300">Receive detailed time estimates and project breakdown.</p>
+                    <p class="text-neutralGray">Receive detailed time estimates and project breakdown.</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-neonGreen rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">3</div>
+                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">3</div>
                     <h3 class="text-xl font-semibold mb-2">Development</h3>
-                    <p class="text-gray-300">Regular updates and transparent hourly tracking throughout development.</p>
+                    <p class="text-neutralGray">Regular updates and transparent hourly tracking throughout development.</p>
                 </div>
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-deepPurple rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">4</div>
+                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">4</div>
                     <h3 class="text-xl font-semibold mb-2">Delivery & Support</h3>
-                    <p class="text-gray-300">Final delivery with documentation and ongoing support options.</p>
+                    <p class="text-neutralGray">Final delivery with documentation and ongoing support options.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA & Contact Form Section -->
-    <section class="bg-darkNavy text-white py-16 px-4 text-center" id="contact">
+    <!-- CTA Section -->
+    <section class="bg-techBlue text-white py-16 px-4 text-center">
         <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-6 neon-glow">Ready to Start Your Project?</h2>
+            <h2 class="text-4xl font-bold mb-6">Ready to Start Your Project?</h2>
             <p class="text-xl mb-8 max-w-2xl mx-auto">Get a free consultation and custom estimate for your development needs. No commitment, just expert advice.</p>
-            <form action="https://formspree.io/f/your-endpoint" method="POST" class="max-w-lg mx-auto bg-darkNavy/50 backdrop-blur-sm rounded-lg p-6 shadow-lg border border-electricCyan/20">
-                <div class="mb-4">
-                    <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 rounded-lg border border-electricCyan/20 focus:outline-none focus:border-neonPink bg-darkNavy/70 text-white placeholder-gray-400">
-                </div>
-                <div class="mb-4">
-                    <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 rounded-lg border border-electricCyan/20 focus:outline-none focus:border-neonPink bg-darkNavy/70 text-white placeholder-gray-400">
-                </div>
-                <div class="mb-4">
-                    <textarea name="message" placeholder="Your Message" required class="w-full px-4 py-2 rounded-lg border border-electricCyan/20 focus:outline-none focus:border-neonPink bg-darkNavy/70 text-white placeholder-gray-400" rows="4"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-neonPink hover:bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold btn-neon transition-all duration-300">Submit Inquiry</button>
-            </form>
+            <a href="#contact" class="bg-cyanAccent hover:bg-cyan-400 text-techBlue px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300">Get Free Consultation</a>
         </div>
     </section>
 
-    <footer class="bg-deepPurple text-white py-8 px-4 text-center">
-        <p>&copy; 2025 Apex American Innovations. All rights reserved.</p>
+    <footer class="bg-techBlue text-white py-8 px-4 text-center">
+        <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
 
 </body>
