@@ -60,87 +60,123 @@
     </section>
 
     <!-- Expertise Section -->
-    <section class="py-16 px-4 bg-white">
+    <section id="expertise" class="py-16 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold mb-4">Our Expertise</h2>
                 <p class="text-lg text-neutralGray max-w-2xl mx-auto">Specialized in advanced development, security, and automation solutions. Every project is unique—contact us for a free consultation and custom estimate.</p>
             </div>
             <!-- Filters -->
-            <div class="flex flex-wrap justify-center gap-2 mb-8">
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">All Services</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Development</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Security</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Mobile</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Finance</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Automation</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Marketing</button>
-                <button class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Optimization</button>
+            <div class="flex flex-wrap justify-center gap-2 mb-8" id="service-filters">
+                <button data-category="all" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all active-filter">All Services</button>
+                <button data-category="development" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Development</button>
+                <button data-category="security" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Security</button>
+                <button data-category="mobile" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Mobile</button>
+                <button data-category="finance" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Finance</button>
+                <button data-category="automation" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Automation</button>
+                <button data-category="marketing" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Marketing</button>
+                <button data-category="optimization" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Optimization</button>
             </div>
             <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="services-grid">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="security optimization">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔒</div>
                     <h3 class="text-xl font-semibold mb-2">System Hacking & Security</h3>
                     <p class="text-neutralGray mb-4">Advanced penetration testing, vulnerability assessments, and security audits for your systems.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="mobile security">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
                     <h3 class="text-xl font-semibold mb-2">Custom ROMs & Jailbreaks</h3>
                     <p class="text-neutralGray mb-4">Custom firmware development, bootloader unlocking, device rooting, and iOS jailbreaking.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="optimization">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔧</div>
                     <h3 class="text-xl font-semibold mb-2">System Upgrades</h3>
                     <p class="text-neutralGray mb-4">Hardware and software upgrades, performance optimization, and system modernization.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="development">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🌐</div>
                     <h3 class="text-xl font-semibold mb-2">Website Development</h3>
                     <p class="text-neutralGray mb-4">Full-stack web development, responsive design, e-commerce solutions, and modern web applications.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="development automation">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💻</div>
                     <h3 class="text-xl font-semibold mb-2">Custom Software Development</h3>
                     <p class="text-neutralGray mb-4">Desktop applications, enterprise software, automation tools, and bespoke software solutions.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="optimization">
                     <div class="w-12 h-12 bg-warmAmber/10 rounded-lg flex items-center justify-center mb-4 text-warmAmber text-2xl">🛠️</div>
                     <h3 class="text-xl font-semibold mb-2">Screen Repair Services</h3>
                     <p class="text-neutralGray mb-4">Professional screen replacement for all devices. $60 labor cost plus parts - quality repairs with warranty and fast turnaround.</p>
                     <div class="text-sm text-warmAmber font-semibold mb-4">$60 + Parts</div>
-                    <button class="w-full bg-warmAmber hover:bg-amber-500 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-warmAmber hover:bg-amber-500 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="mobile development">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
                     <h3 class="text-xl font-semibold mb-2">Mobile App Development</h3>
                     <p class="text-neutralGray mb-4">Native and cross-platform mobile applications for iOS and Android with modern features.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="automation development">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🤖</div>
                     <h3 class="text-xl font-semibold mb-2">Bot Development</h3>
                     <p class="text-neutralGray mb-4">Trading bots, automation bots, chatbots, social media bots, and AI-powered solutions.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="finance automation">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💹</div>
                     <h3 class="text-xl font-semibold mb-2">Financial Software & Trading Tools</h3>
                     <p class="text-neutralGray mb-4">Stock analysis tools, crypto trading platforms, portfolio trackers, and financial dashboards.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (New) -->
+    <section id="portfolio" class="py-16 px-4 bg-lightGray">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Our Portfolio</h2>
+                <p class="text-lg text-neutralGray max-w-2xl mx-auto">Explore some of our recent projects showcasing our expertise in development, security, and more.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-neutralGray">Project Image Placeholder</div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Custom Trading Bot</h3>
+                        <p class="text-neutralGray mb-4">Automated crypto trading system with AI predictions.</p>
+                        <a href="#contact" class="text-cyanAccent font-semibold">Learn More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-neutralGray">Project Image Placeholder</div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Mobile App Jailbreak Tool</h3>
+                        <p class="text-neutralGray mb-4">Secure rooting app for Android devices.</p>
+                        <a href="#contact" class="text-cyanAccent font-semibold">Learn More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 flex items-center justify-center text-neutralGray">Project Image Placeholder</div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Enterprise Security Audit</h3>
+                        <p class="text-neutralGray mb-4">Full penetration testing for corporate networks.</p>
+                        <a href="#contact" class="text-cyanAccent font-semibold">Learn More →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,6 +233,45 @@
         </div>
     </section>
 
+    <!-- Contact Section (New, with Form) -->
+    <section id="contact" class="py-16 px-4 bg-lightGray">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Get in Touch</h2>
+                <p class="text-lg text-neutralGray max-w-2xl mx-auto">Fill out the form for a free consultation or quote. We'll respond within 24 hours.</p>
+            </div>
+            <form action="https://formspree.io/f/your-formspree-id" method="POST" class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
+                <div class="mb-6">
+                    <label for="name" class="block text-sm font-medium text-techBlue mb-2">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent">
+                </div>
+                <div class="mb-6">
+                    <label for="email" class="block text-sm font-medium text-techBlue mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent">
+                </div>
+                <div class="mb-6">
+                    <label for="service" class="block text-sm font-medium text-techBlue mb-2">Service Interested In</label>
+                    <select id="service" name="service" class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent">
+                        <option value="System Hacking & Security">System Hacking & Security</option>
+                        <option value="Custom ROMs & Jailbreaks">Custom ROMs & Jailbreaks</option>
+                        <option value="System Upgrades">System Upgrades</option>
+                        <option value="Website Development">Website Development</option>
+                        <option value="Custom Software Development">Custom Software Development</option>
+                        <option value="Screen Repair Services">Screen Repair Services</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="Bot Development">Bot Development</option>
+                        <option value="Financial Software & Trading Tools">Financial Software & Trading Tools</option>
+                    </select>
+                </div>
+                <div class="mb-6">
+                    <label for="message" class="block text-sm font-medium text-techBlue mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="bg-techBlue text-white py-16 px-4 text-center">
         <div class="container mx-auto">
@@ -209,6 +284,45 @@
     <footer class="bg-techBlue text-white py-8 px-4 text-center">
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Filters and Smooth Scrolling -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Service Filters
+        const filters = document.querySelectorAll('#service-filters button');
+        const cards = document.querySelectorAll('.service-card');
+
+        filters.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                
+                // Update active filter
+                filters.forEach(btn => btn.classList.remove('active-filter'));
+                button.classList.add('active-filter');
+                
+                // Filter cards
+                cards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-categories').split(' ').includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initial active filter style
+        document.querySelector('.active-filter').classList.add('bg-cyanAccent/20');
+    </script>
 
 </body>
 </html>
