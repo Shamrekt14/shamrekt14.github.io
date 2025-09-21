@@ -6,7 +6,7 @@
     <meta name="description" content="TradeHax offers elite development services, including system hacking, custom software, mobile apps, and financial tools. Get a free consultation today!">
     <meta name="keywords" content="web development, system hacking, custom software, mobile apps, trading bots, TradeHax">
     <meta name="author" content="TradeHax">
-    <title>Apex Solutions | TradeHax</title>
+    <title>Apex Innovations | TradeHax</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -74,6 +74,9 @@
             display: flex;
             justify-content: center;
         }
+        /* Bridge sections with subtle overlap */
+        #expertise { margin-bottom: -2rem; }
+        #portfolio { margin-top: -2rem; }
     </style>
 </head>
 <body class="font-sans antialiased bg-lightGray text-techBlue">
@@ -94,7 +97,7 @@
     <section class="bg-gradient-to-br from-techBlue to-gray-800 text-white py-24 px-4 relative overflow-hidden">
         <div class="parallax-bg"></div>
         <div class="container mx-auto text-center relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Elite Development Services</h1>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Apex Innovations</h1>
             <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-slide-up">From system hacking to custom software, mobile apps to financial tools—we deliver cutting-edge solutions tailored to your needs.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <a href="#contact" class="bg-cyanAccent hover:bg-cyan-400 text-techBlue px-8 py-4 rounded-lg font-semibold transition-all duration-300 animate-slide-up">Get Free Consultation</a>
@@ -122,23 +125,12 @@
         </div>
     </section>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="py-16 px-4 bg-white">
+    <!-- Expertise Section (Tightened Padding, No Filters) -->
+    <section id="expertise" class="py-12 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold mb-4 animate-fade-in">Our Expertise</h2>
                 <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Specialized in advanced development, security, and automation solutions. Every project is unique—contact us for a free consultation and custom estimate.</p>
-            </div>
-            <!-- Filters -->
-            <div class="flex flex-wrap justify-center gap-2 mb-8" id="service-filters">
-                <button data-category="all" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all active-filter">All Services</button>
-                <button data-category="development" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Development</button>
-                <button data-category="security" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Security</button>
-                <button data-category="mobile" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Mobile</button>
-                <button data-category="finance" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Finance</button>
-                <button data-category="automation" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Automation</button>
-                <button data-category="marketing" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Marketing</button>
-                <button data-category="optimization" class="px-4 py-2 rounded-lg text-sm font-medium bg-cyanAccent/10 text-cyanAccent hover:bg-cyanAccent/20 transition-all">Optimization</button>
             </div>
             <!-- Services Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="services-grid">
@@ -209,8 +201,8 @@
         </div>
     </section>
 
-    <!-- Portfolio Section (Enhanced with Swiper.js) -->
-    <section id="portfolio" class="py-16 px-4 bg-lightGray">
+    <!-- Portfolio Section (Tightened Padding with Overlap Bridge) -->
+    <section id="portfolio" class="py-12 px-4 bg-lightGray">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold mb-4 animate-fade-in">Our Portfolio</h2>
@@ -361,7 +353,7 @@
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Filters, Smooth Scrolling, GSAP, Swiper, and EmailJS -->
+    <!-- JavaScript for Smooth Scrolling, GSAP, Swiper, and EmailJS -->
     <script>
         // Initialize EmailJS
         (function(){
@@ -374,30 +366,6 @@
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
-                });
-            });
-        });
-
-        // Service Filters
-        const filters = document.querySelectorAll('#service-filters button');
-        const cards = document.querySelectorAll('.service-card');
-
-        filters.forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.getAttribute('data-category');
-                
-                // Update active filter
-                filters.forEach(btn => btn.classList.remove('active-filter', 'bg-cyanAccent/20'));
-                button.classList.add('active-filter', 'bg-cyanAccent/20');
-                
-                // Filter cards
-                cards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-categories').split(' ').includes(category)) {
-                        card.style.display = 'block';
-                        gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
-                    } else {
-                        card.style.display = 'none';
-                    }
                 });
             });
         });
@@ -426,6 +394,16 @@
             duration: 0.8,
             ease: "power2.out"
         });
+        // Bridge animation: Slight upward pull from Expertise to Portfolio
+        gsap.to("#expertise", {
+            scrollTrigger: {
+                trigger: "#expertise",
+                start: "bottom 20%",
+                end: "bottom top",
+                scrub: true
+            },
+            y: -10
+        });
 
         // Swiper.js for Portfolio Carousel
         const swiper = new Swiper('.swiper-container', {
@@ -436,8 +414,8 @@
                 clickable: true,
             },
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-prev',
+                prevEl: '.swiper-button-next',
             },
             breakpoints: {
                 640: {
