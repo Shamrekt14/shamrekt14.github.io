@@ -66,6 +66,9 @@
             background: rgba(10, 37, 64, 0.95);
             backdrop-filter: blur(10px);
         }
+        .service-card {
+            display: block !important; /* Ensure cards are always visible */
+        }
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2);
@@ -125,7 +128,7 @@
         </div>
     </section>
 
-    <!-- Expertise Section (Tightened Padding, No Filters) -->
+    <!-- Expertise Section (All Services Always Visible) -->
     <section id="expertise" class="py-12 px-4 bg-white">
         <div class="container mx-auto">
             <div class="text-center mb-12">
@@ -134,63 +137,63 @@
             </div>
             <!-- Services Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="services-grid">
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="security optimization">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔒</div>
                     <h3 class="text-xl font-semibold mb-2">System Hacking & Security</h3>
                     <p class="text-neutralGray mb-4">Advanced penetration testing, vulnerability assessments, and security audits for your systems.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="mobile security">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
                     <h3 class="text-xl font-semibold mb-2">Custom ROMs & Jailbreaks</h3>
                     <p class="text-neutralGray mb-4">Custom firmware development, bootloader unlocking, device rooting, and iOS jailbreaking.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="optimization">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔧</div>
                     <h3 class="text-xl font-semibold mb-2">System Upgrades</h3>
                     <p class="text-neutralGray mb-4">Hardware and software upgrades, performance optimization, and system modernization.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="development">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🌐</div>
                     <h3 class="text-xl font-semibold mb-2">Website Development</h3>
                     <p class="text-neutralGray mb-4">Full-stack web development, responsive design, e-commerce solutions, and modern web applications.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="development automation">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💻</div>
                     <h3 class="text-xl font-semibold mb-2">Custom Software Development</h3>
                     <p class="text-neutralGray mb-4">Desktop applications, enterprise software, automation tools, and bespoke software solutions.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="optimization">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-warmAmber/10 rounded-lg flex items-center justify-center mb-4 text-warmAmber text-2xl">🛠️</div>
                     <h3 class="text-xl font-semibold mb-2">Screen Repair Services</h3>
                     <p class="text-neutralGray mb-4">Professional screen replacement for all devices. $60 labor cost plus parts - quality repairs with warranty and fast turnaround.</p>
                     <div class="text-sm text-warmAmber font-semibold mb-4">$60 + Parts</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-warmAmber hover:bg-amber-500 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="mobile development">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
                     <h3 class="text-xl font-semibold mb-2">Mobile App Development</h3>
                     <p class="text-neutralGray mb-4">Native and cross-platform mobile applications for iOS and Android with modern features.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="automation development">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🤖</div>
                     <h3 class="text-xl font-semibold mb-2">Bot Development</h3>
                     <p class="text-neutralGray mb-4">Trading bots, automation bots, chatbots, social media bots, and AI-powered solutions.</p>
                     <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
                     <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
                 </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all" data-categories="finance automation">
+                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
                     <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💹</div>
                     <h3 class="text-xl font-semibold mb-2">Financial Software & Trading Tools</h3>
                     <p class="text-neutralGray mb-4">Stock analysis tools, crypto trading platforms, portfolio trackers, and financial dashboards.</p>
@@ -373,15 +376,14 @@
         // GSAP Animations
         gsap.from(".navbar-sticky", { y: -100, duration: 1, ease: "power2.out" });
         gsap.from(".service-card", {
-            scrollTrigger: {
-                trigger: "#services-grid",
-                start: "top 80%",
-            },
             opacity: 0,
             y: 50,
             stagger: 0.2,
             duration: 0.8,
-            ease: "power2.out"
+            ease: "power2.out",
+            onComplete: () => {
+                console.log("Service cards loaded:", document.querySelectorAll('.service-card').length); // Debug: Confirm 9 cards
+            }
         });
         gsap.from(".swiper-slide", {
             scrollTrigger: {
