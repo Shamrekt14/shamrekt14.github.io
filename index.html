@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="TradeHax offers elite development services, including system hacking, custom software, mobile apps, and financial tools. Get a free consultation today!">
-    <meta name="keywords" content="web development, system hacking, custom software, mobile apps, trading bots, TradeHax">
+    <meta name="description" content="Apex Innovations by TradeHax: Cutting-edge development services in security, software, mobile, and finance. Free consultation available.">
+    <meta name="keywords" content="web development, system hacking, custom software, mobile apps, trading bots, Apex Innovations, TradeHax">
     <meta name="author" content="TradeHax">
-    <title>Apex Innovations | TradeHax</title>
+    <title>Home | Apex Innovations | TradeHax</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -153,97 +153,4 @@
                 const href = this.getAttribute('href');
                 const pageContent = document.querySelector('.page-content');
                 
-                // Fade out current content
-                gsap.to(pageContent, {
-                    opacity: 0,
-                    duration: 0.5,
-                    ease: "power2.out",
-                    onComplete: () => {
-                        // Fetch new page content
-                        fetch(href)
-                            .then(response => response.text())
-                            .then(data => {
-                                const parser = new DOMParser();
-                                const newDoc = parser.parseFromString(data, 'text/html');
-                                const newContent = newDoc.querySelector('.page-content').innerHTML;
-                                
-                                // Update content and fade in
-                                pageContent.innerHTML = newContent;
-                                gsap.fromTo(pageContent, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.in" });
-                                
-                                // Re-initialize scripts for new content
-                                if (href.includes('portfolio.html')) {
-                                    initializeSwiper();
-                                }
-                                if (href.includes('contact.html')) {
-                                    initializeContactForm();
-                                }
-                            })
-                            .catch(error => console.error('Error loading page:', error));
-                    }
-                });
-            });
-        });
-
-        // GSAP Animations for Home Page
-        gsap.from(".navbar-sticky", { y: -100, duration: 1, ease: "power2.out" });
-        gsap.from(".page-content", { opacity: 0, y: 50, duration: 0.8, ease: "power2.out" });
-
-        // Swiper.js for Portfolio (to be called on portfolio.html load)
-        function initializeSwiper() {
-            const swiper = new Swiper('.swiper-container', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-prev',
-                    prevEl: '.swiper-button-next',
-                },
-                breakpoints: {
-                    640: { slidesPerView: 2, spaceBetween: 20 },
-                    1024: { slidesPerView: 3, spaceBetween: 30 },
-                },
-                on: {
-                    init: () => {
-                        console.log("Swiper initialized with 3 slides"); // Debug: Confirm Swiper init
-                    }
-                }
-            });
-            gsap.from(".swiper-slide", {
-                opacity: 0,
-                x: 50,
-                stagger: 0.2,
-                duration: 0.8,
-                ease: "power2.out",
-                onComplete: () => {
-                    console.log("Portfolio cards loaded:", document.querySelectorAll('.swiper-slide').length); // Debug: Confirm 3 portfolio cards
-                }
-            });
-        }
-
-        // EmailJS Form Submission (to be called on contact.html load)
-        function initializeContactForm() {
-            const form = document.getElementById('contact-form');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const formData = {
-                        name: form.querySelector('#name').value,
-                        email: form.querySelector('#email').value,
-                        service: form.querySelector('#service').value,
-                        message: form.querySelector('#message').value
-                    };
-                    emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', formData)
-                        .then(function(response) {
-                            alert('Your request has been sent successfully!');
-                            form.reset();
-                        }, function(error) {
-                            alert('There was an error sending your request: ' + error.text);
-                        });
-                });
-            }
-        }
-    </script>
+                // Fade out current
