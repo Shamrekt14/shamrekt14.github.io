@@ -12,6 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script>
         tailwind.config = {
@@ -306,27 +307,26 @@
         </div>
     </section>
 
-    <!-- Contact Section (Google Forms Integration) -->
+    <!-- Contact Section (EmailJS Integration) -->
     <section id="contact" class="py-16 px-4 bg-lightGray">
         <div class="container mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold mb-4 animate-fade-in">Get in Touch</h2>
-                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Fill out the form for a free consultation or quote. We'll respond within 24 hours to owner@tradehax.net.</p>
+                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Fill out the form for a free consultation or quote. We'll respond within 24 hours.</p>
+                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Email: owner@tradehax.net</p>
             </div>
-            <!-- Google Forms Integration -->
-            <form action="https://docs.google.com/forms/u/0/d/e/YOUR_FORM_ID/formResponse" method="POST" class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
-                <input type="hidden" name="emailAddress" value="owner@tradehax.net">
+            <form id="contact-form" class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
                 <div class="mb-6">
-                    <label for="entry.1234567890" class="block text-sm font-medium text-techBlue mb-2">Name</label>
-                    <input type="text" id="entry.1234567890" name="entry.1234567890" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Name">
+                    <label for="name" class="block text-sm font-medium text-techBlue mb-2">Name</label>
+                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Name">
                 </div>
                 <div class="mb-6">
-                    <label for="entry.0987654321" class="block text-sm font-medium text-techBlue mb-2">Email</label>
-                    <input type="email" id="entry.0987654321" name="entry.0987654321" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Email">
+                    <label for="email" class="block text-sm font-medium text-techBlue mb-2">Email</label>
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Email">
                 </div>
                 <div class="mb-6">
-                    <label for="entry.1122334455" class="block text-sm font-medium text-techBlue mb-2">Service Interested In</label>
-                    <select id="entry.1122334455" name="entry.1122334455" class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Service Interested In">
+                    <label for="service" class="block text-sm font-medium text-techBlue mb-2">Service Interested In</label>
+                    <select id="service" name="service" class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Service Interested In">
                         <option value="System Hacking & Security">System Hacking & Security</option>
                         <option value="Custom ROMs & Jailbreaks">Custom ROMs & Jailbreaks</option>
                         <option value="System Upgrades">System Upgrades</option>
@@ -339,12 +339,12 @@
                     </select>
                 </div>
                 <div class="mb-6">
-                    <label for="entry.5566778899" class="block text-sm font-medium text-techBlue mb-2">Message</label>
-                    <textarea id="entry.5566778899" name="entry.5566778899" rows="4" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Message"></textarea>
+                    <label for="message" class="block text-sm font-medium text-techBlue mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Message"></textarea>
                 </div>
                 <button type="submit" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Submit Request</button>
             </form>
-            <p class="text-center text-sm text-neutralGray mt-4">Note: Replace 'YOUR_FORM_ID' and 'entry.XXXX' values with your Google Form's actual form ID and field entry IDs. To find these, create a form in Google Forms, inspect the form's source code, and replace the placeholders accordingly.</p>
+            <p class="text-center text-sm text-neutralGray mt-4">Note: To enable email functionality, sign up for a free EmailJS account at https://www.emailjs.com/. Create a service (e.g., Gmail), set up an email template with fields {name}, {email}, {service}, and {message}, and replace YOUR_EMAILJS_SERVICE_ID, YOUR_EMAILJS_TEMPLATE_ID, and YOUR_EMAILJS_PUBLIC_KEY in the script below with your EmailJS credentials.</p>
         </div>
     </section>
 
@@ -361,8 +361,13 @@
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Filters, Smooth Scrolling, GSAP, and Swiper -->
+    <!-- JavaScript for Filters, Smooth Scrolling, GSAP, Swiper, and EmailJS -->
     <script>
+        // Initialize EmailJS
+        (function(){
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS Public Key
+        })();
+
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -444,6 +449,26 @@
                     spaceBetween: 30,
                 },
             },
+        });
+
+        // EmailJS Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const formData = {
+                name: form.querySelector('#name').value,
+                email: form.querySelector('#email').value,
+                service: form.querySelector('#service').value,
+                message: form.querySelector('#message').value
+            };
+
+            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', formData)
+                .then(function(response) {
+                    alert('Your request has been sent successfully!');
+                    form.reset();
+                }, function(error) {
+                    alert('There was an error sending your request: ' + error.text);
+                });
         });
     </script>
 </body>
