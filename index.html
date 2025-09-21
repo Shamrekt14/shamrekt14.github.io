@@ -31,6 +31,7 @@
                     animation: {
                         'fade-in': 'fadeIn 1s ease-out',
                         'slide-up': 'slideUp 0.8s ease-out',
+                        'page-transition': 'pageTransition 0.5s ease-in-out',
                     },
                     keyframes: {
                         fadeIn: {
@@ -40,6 +41,11 @@
                         slideUp: {
                             '0%': { transform: 'translateY(20px)', opacity: '0' },
                             '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        pageTransition: {
+                            '0%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                            '100%': { opacity: '1' },
                         },
                     },
                 }
@@ -66,390 +72,178 @@
             background: rgba(10, 37, 64, 0.95);
             backdrop-filter: blur(10px);
         }
-        .service-card {
+        .service-card, .swiper-slide {
             display: block !important; /* Ensure cards are always visible */
         }
-        .service-card:hover {
+        .service-card:hover, .swiper-slide:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 209, 255, 0.2);
         }
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
+        .page-content {
+            transition: opacity 0.5s ease-in-out;
         }
-        /* Bridge sections with subtle overlap */
-        #expertise { margin-bottom: -2rem; }
-        #portfolio { margin-top: -2rem; }
+        .page-transition {
+            animation: pageTransition 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-lightGray text-techBlue">
-
     <!-- Navigation Bar -->
     <nav class="navbar-sticky text-white py-4 px-4">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold">TradeHax</a>
+            <a href="/index.html" class="text-2xl font-bold">TradeHax</a>
             <div class="flex space-x-6">
-                <a href="#expertise" class="hover:text-cyanAccent transition-colors">Services</a>
-                <a href="#portfolio" class="hover:text-cyanAccent transition-colors">Portfolio</a>
-                <a href="#contact" class="hover:text-cyanAccent transition-colors">Contact</a>
+                <a href="/index.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Home</a>
+                <a href="/services.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Services</a>
+                <a href="/portfolio.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Portfolio</a>
+                <a href="/contact.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-techBlue to-gray-800 text-white py-24 px-4 relative overflow-hidden">
-        <div class="parallax-bg"></div>
-        <div class="container mx-auto text-center relative z-10">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Apex Innovations</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-slide-up">From system hacking to custom software, mobile apps to financial tools—we deliver cutting-edge solutions tailored to your needs.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <a href="#contact" class="bg-cyanAccent hover:bg-cyan-400 text-techBlue px-8 py-4 rounded-lg font-semibold transition-all duration-300 animate-slide-up">Get Free Consultation</a>
-                <a href="#portfolio" class="border-2 border-cyanAccent text-cyanAccent px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-cyanAccent hover:text-techBlue animate-slide-up">View Portfolio</a>
-            </div>
-            <!-- Stats Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.1s;">
-                    <div class="text-2xl font-bold text-cyanAccent">500+</div>
-                    <div class="text-sm text-gray-300">Projects Completed</div>
+    <!-- Home Page Content (Hero Section) -->
+    <div class="page-content">
+        <section class="bg-gradient-to-br from-techBlue to-gray-800 text-white py-24 px-4 relative overflow-hidden">
+            <div class="parallax-bg"></div>
+            <div class="container mx-auto text-center relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Apex Innovations</h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-slide-up">From system hacking to custom software, mobile apps to financial tools—we deliver cutting-edge solutions tailored to your needs.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <a href="/contact.html" data-transition="true" class="bg-cyanAccent hover:bg-cyan-400 text-techBlue px-8 py-4 rounded-lg font-semibold transition-all duration-300 animate-slide-up">Get Free Consultation</a>
+                    <a href="/portfolio.html" data-transition="true" class="border-2 border-cyanAccent text-cyanAccent px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-cyanAccent hover:text-techBlue animate-slide-up">View Portfolio</a>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.2s;">
-                    <div class="text-2xl font-bold text-cyanAccent">50+</div>
-                    <div class="text-sm text-gray-300">Custom ROMs</div>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.3s;">
-                    <div class="text-2xl font-bold text-cyanAccent">100+</div>
-                    <div class="text-sm text-gray-300">Trading Bots</div>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.4s;">
-                    <div class="text-2xl font-bold text-cyanAccent">24/7</div>
-                    <div class="text-sm text-gray-300">Support</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Section (All Services Always Visible) -->
-    <section id="expertise" class="py-12 px-4 bg-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 animate-fade-in">Our Expertise</h2>
-                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Specialized in advanced development, security, and automation solutions. Every project is unique—contact us for a free consultation and custom estimate.</p>
-            </div>
-            <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto" id="services-grid">
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔒</div>
-                    <h3 class="text-xl font-semibold mb-2">System Hacking & Security</h3>
-                    <p class="text-neutralGray mb-4">Advanced penetration testing, vulnerability assessments, and security audits for your systems.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
-                    <h3 class="text-xl font-semibold mb-2">Custom ROMs & Jailbreaks</h3>
-                    <p class="text-neutralGray mb-4">Custom firmware development, bootloader unlocking, device rooting, and iOS jailbreaking.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🔧</div>
-                    <h3 class="text-xl font-semibold mb-2">System Upgrades</h3>
-                    <p class="text-neutralGray mb-4">Hardware and software upgrades, performance optimization, and system modernization.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🌐</div>
-                    <h3 class="text-xl font-semibold mb-2">Website Development</h3>
-                    <p class="text-neutralGray mb-4">Full-stack web development, responsive design, e-commerce solutions, and modern web applications.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💻</div>
-                    <h3 class="text-xl font-semibold mb-2">Custom Software Development</h3>
-                    <p class="text-neutralGray mb-4">Desktop applications, enterprise software, automation tools, and bespoke software solutions.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-warmAmber/10 rounded-lg flex items-center justify-center mb-4 text-warmAmber text-2xl">🛠️</div>
-                    <h3 class="text-xl font-semibold mb-2">Screen Repair Services</h3>
-                    <p class="text-neutralGray mb-4">Professional screen replacement for all devices. $60 labor cost plus parts - quality repairs with warranty and fast turnaround.</p>
-                    <div class="text-sm text-warmAmber font-semibold mb-4">$60 + Parts</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-warmAmber hover:bg-amber-500 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">📱</div>
-                    <h3 class="text-xl font-semibold mb-2">Mobile App Development</h3>
-                    <p class="text-neutralGray mb-4">Native and cross-platform mobile applications for iOS and Android with modern features.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">🤖</div>
-                    <h3 class="text-xl font-semibold mb-2">Bot Development</h3>
-                    <p class="text-neutralGray mb-4">Trading bots, automation bots, chatbots, social media bots, and AI-powered solutions.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-                <div class="service-card bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
-                    <div class="w-12 h-12 bg-cyanAccent/10 rounded-lg flex items-center justify-center mb-4 text-cyanAccent text-2xl">💹</div>
-                    <h3 class="text-xl font-semibold mb-2">Financial Software & Trading Tools</h3>
-                    <p class="text-neutralGray mb-4">Stock analysis tools, crypto trading platforms, portfolio trackers, and financial dashboards.</p>
-                    <div class="text-sm text-neutralGray mb-4">Hourly Rate</div>
-                    <button onclick="window.location.href='#contact'" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Get Quote</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section (Tightened Padding with Overlap Bridge) -->
-    <section id="portfolio" class="py-12 px-4 bg-lightGray">
-        <div class="container mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 animate-fade-in">Our Portfolio</h2>
-                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Explore some of our recent projects showcasing our expertise in development, security, and more.</p>
-            </div>
-            <div class="swiper-container max-w-6xl mx-auto">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="h-48 bg-gray-200 flex items-center justify-center text-neutralGray">Project Image Placeholder</div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Custom Trading Bot</h3>
-                                <p class="text-neutralGray mb-4">Automated crypto trading system with AI predictions.</p>
-                                <a href="#contact" class="text-cyanAccent font-semibold">Learn More →</a>
-                            </div>
-                        </div>
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-2xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.1s;">
+                        <div class="text-2xl font-bold text-cyanAccent">500+</div>
+                        <div class="text-sm text-gray-300">Projects Completed</div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="h-48 bg-gray-200 flex items-center justify-center text-neutralGray">Project Image Placeholder</div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Mobile App Jailbreak Tool</h3>
-                                <p class="text-neutralGray mb-4">Secure rooting app for Android devices.</p>
-                                <a href="#contact" class="text-cyanAccent font-semibold">Learn More →</a>
-                            </div>
-                        </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.2s;">
+                        <div class="text-2xl font-bold text-cyanAccent">50+</div>
+                        <div class="text-sm text-gray-300">Custom ROMs</div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                            <div class="h-48 bg-gray-200 flex items-center justify-center text-neutralGray">Project Image Placeholder</div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Enterprise Security Audit</h3>
-                                <p class="text-neutralGray mb-4">Full penetration testing for corporate networks.</p>
-                                <a href="#contact" class="text-cyanAccent font-semibold">Learn More →</a>
-                            </div>
-                        </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.3s;">
+                        <div class="text-2xl font-bold text-cyanAccent">100+</div>
+                        <div class="text-sm text-gray-300">Trading Bots</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center animate-slide-up" style="animation-delay: 0.4s;">
+                        <div class="text-2xl font-bold text-cyanAccent">24/7</div>
+                        <div class="text-sm text-gray-300">Support</div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Transparent Pricing Section -->
-    <section class="bg-gradient-to-r from-techBlue to-gray-800 py-16 px-4 text-white">
-        <div class="container mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-4 animate-fade-in">Transparent Hourly Pricing</h2>
-            <p class="text-xl mb-8 max-w-4xl mx-auto animate-slide-up">All services are billed hourly for maximum transparency. However, we provide FREE initial consultations and estimates for every project.</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-sm animate-slide-up">
-                    <h3 class="text-xl font-semibold mb-2 text-cyanAccent">Complete Transparency</h3>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-sm animate-slide-up" style="animation-delay: 0.1s;">
-                    <h3 class="text-xl font-semibold mb-2 text-cyanAccent">No Hidden Costs</h3>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-sm animate-slide-up" style="animation-delay: 0.2s;">
-                    <h3 class="text-xl font-semibold mb-2 text-cyanAccent">Flexible Scaling</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section class="py-16 px-4 bg-white">
-        <div class="container mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 animate-fade-in">Our Process</h2>
-                <p class="text-lg text-neutralGray animate-slide-up">From consultation to delivery, we ensure transparent communication and quality results.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                <div class="text-center animate-slide-up">
-                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">1</div>
-                    <h3 class="text-xl font-semibold mb-2">Free Consultation</h3>
-                    <p class="text-neutralGray">Discuss your project requirements and get expert advice at no cost.</p>
-                </div>
-                <div class="text-center animate-slide-up" style="animation-delay: 0.1s;">
-                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">2</div>
-                    <h3 class="text-xl font-semibold mb-2">Custom Estimate</h3>
-                    <p class="text-neutralGray">Receive detailed time estimates and project breakdown.</p>
-                </div>
-                <div class="text-center animate-slide-up" style="animation-delay: 0.2s;">
-                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">3</div>
-                    <h3 class="text-xl font-semibold mb-2">Development</h3>
-                    <p class="text-neutralGray">Regular updates and transparent hourly tracking throughout development.</p>
-                </div>
-                <div class="text-center animate-slide-up" style="animation-delay: 0.3s;">
-                    <div class="w-16 h-16 bg-cyanAccent rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-xl">4</div>
-                    <h3 class="text-xl font-semibold mb-2">Delivery & Support</h3>
-                    <p class="text-neutralGray">Final delivery with documentation and ongoing support options.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section (EmailJS Integration) -->
-    <section id="contact" class="py-16 px-4 bg-lightGray">
-        <div class="container mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4 animate-fade-in">Get in Touch</h2>
-                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Fill out the form for a free consultation or quote. We'll respond within 24 hours.</p>
-                <p class="text-lg text-neutralGray max-w-2xl mx-auto animate-slide-up">Email: owner@tradehax.net</p>
-            </div>
-            <form id="contact-form" class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-8">
-                <div class="mb-6">
-                    <label for="name" class="block text-sm font-medium text-techBlue mb-2">Name</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Name">
-                </div>
-                <div class="mb-6">
-                    <label for="email" class="block text-sm font-medium text-techBlue mb-2">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Email">
-                </div>
-                <div class="mb-6">
-                    <label for="service" class="block text-sm font-medium text-techBlue mb-2">Service Interested In</label>
-                    <select id="service" name="service" class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Service Interested In">
-                        <option value="System Hacking & Security">System Hacking & Security</option>
-                        <option value="Custom ROMs & Jailbreaks">Custom ROMs & Jailbreaks</option>
-                        <option value="System Upgrades">System Upgrades</option>
-                        <option value="Website Development">Website Development</option>
-                        <option value="Custom Software Development">Custom Software Development</option>
-                        <option value="Screen Repair Services">Screen Repair Services</option>
-                        <option value="Mobile App Development">Mobile App Development</option>
-                        <option value="Bot Development">Bot Development</option>
-                        <option value="Financial Software & Trading Tools">Financial Software & Trading Tools</option>
-                    </select>
-                </div>
-                <div class="mb-6">
-                    <label for="message" class="block text-sm font-medium text-techBlue mb-2">Message</label>
-                    <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-neutralGray rounded-lg focus:outline-none focus:border-cyanAccent" aria-label="Your Message"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-cyanAccent hover:bg-cyan-400 text-techBlue py-3 rounded-lg font-semibold transition-all">Submit Request</button>
-            </form>
-            <p class="text-center text-sm text-neutralGray mt-4">Note: To enable email functionality, sign up for a free EmailJS account at https://www.emailjs.com/. Create a service (e.g., Gmail), set up an email template with fields {name}, {email}, {service}, and {message}, and replace YOUR_EMAILJS_SERVICE_ID, YOUR_EMAILJS_TEMPLATE_ID, and YOUR_EMAILJS_PUBLIC_KEY in the script below with your EmailJS credentials.</p>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="bg-techBlue text-white py-16 px-4 text-center">
-        <div class="container mx-auto">
-            <h2 class="text-4xl font-bold mb-6 animate-fade-in">Ready to Start Your Project?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto animate-slide-up">Get a free consultation and custom estimate for your development needs. No commitment, just expert advice.</p>
-            <a href="#contact" class="bg-cyanAccent hover:bg-cyan-400 text-techBlue px-10 py-4 rounded-lg font-semibold text-lg transition-all duration-300 animate-slide-up">Get Free Consultation</a>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer class="bg-techBlue text-white py-8 px-4 text-center">
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Smooth Scrolling, GSAP, Swiper, and EmailJS -->
+    <!-- JavaScript for Page Transitions, GSAP, and Shared Functionality -->
     <script>
-        // Initialize EmailJS
+        // Initialize EmailJS (for Contact page)
         (function(){
             emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS Public Key
         })();
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        // Page Transition Handler
+        document.querySelectorAll('a[data-transition="true"]').forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                const href = this.getAttribute('href');
+                const pageContent = document.querySelector('.page-content');
+                
+                // Fade out current content
+                gsap.to(pageContent, {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        // Fetch new page content
+                        fetch(href)
+                            .then(response => response.text())
+                            .then(data => {
+                                const parser = new DOMParser();
+                                const newDoc = parser.parseFromString(data, 'text/html');
+                                const newContent = newDoc.querySelector('.page-content').innerHTML;
+                                
+                                // Update content and fade in
+                                pageContent.innerHTML = newContent;
+                                gsap.fromTo(pageContent, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.in" });
+                                
+                                // Re-initialize scripts for new content
+                                if (href.includes('portfolio.html')) {
+                                    initializeSwiper();
+                                }
+                                if (href.includes('contact.html')) {
+                                    initializeContactForm();
+                                }
+                            })
+                            .catch(error => console.error('Error loading page:', error));
+                    }
                 });
             });
         });
 
-        // GSAP Animations
+        // GSAP Animations for Home Page
         gsap.from(".navbar-sticky", { y: -100, duration: 1, ease: "power2.out" });
-        gsap.from(".service-card", {
-            opacity: 0,
-            y: 50,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: "power2.out",
-            onComplete: () => {
-                console.log("Service cards loaded:", document.querySelectorAll('.service-card').length); // Debug: Confirm 9 cards
-            }
-        });
-        gsap.from(".swiper-slide", {
-            scrollTrigger: {
-                trigger: "#portfolio",
-                start: "top 80%",
-            },
-            opacity: 0,
-            x: 50,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: "power2.out"
-        });
-        // Bridge animation: Slight upward pull from Expertise to Portfolio
-        gsap.to("#expertise", {
-            scrollTrigger: {
-                trigger: "#expertise",
-                start: "bottom 20%",
-                end: "bottom top",
-                scrub: true
-            },
-            y: -10
-        });
+        gsap.from(".page-content", { opacity: 0, y: 50, duration: 0.8, ease: "power2.out" });
 
-        // Swiper.js for Portfolio Carousel
-        const swiper = new Swiper('.swiper-container', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-prev',
-                prevEl: '.swiper-button-next',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
+        // Swiper.js for Portfolio (to be called on portfolio.html load)
+        function initializeSwiper() {
+            const swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
                 },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
+                navigation: {
+                    nextEl: '.swiper-button-prev',
+                    prevEl: '.swiper-button-next',
                 },
-            },
-        });
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 },
+                },
+                on: {
+                    init: () => {
+                        console.log("Swiper initialized with 3 slides"); // Debug: Confirm Swiper init
+                    }
+                }
+            });
+            gsap.from(".swiper-slide", {
+                opacity: 0,
+                x: 50,
+                stagger: 0.2,
+                duration: 0.8,
+                ease: "power2.out",
+                onComplete: () => {
+                    console.log("Portfolio cards loaded:", document.querySelectorAll('.swiper-slide').length); // Debug: Confirm 3 portfolio cards
+                }
+            });
+        }
 
-        // EmailJS Form Submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const form = this;
-            const formData = {
-                name: form.querySelector('#name').value,
-                email: form.querySelector('#email').value,
-                service: form.querySelector('#service').value,
-                message: form.querySelector('#message').value
-            };
-
-            emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', formData)
-                .then(function(response) {
-                    alert('Your request has been sent successfully!');
-                    form.reset();
-                }, function(error) {
-                    alert('There was an error sending your request: ' + error.text);
+        // EmailJS Form Submission (to be called on contact.html load)
+        function initializeContactForm() {
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = {
+                        name: form.querySelector('#name').value,
+                        email: form.querySelector('#email').value,
+                        service: form.querySelector('#service').value,
+                        message: form.querySelector('#message').value
+                    };
+                    emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', formData)
+                        .then(function(response) {
+                            alert('Your request has been sent successfully!');
+                            form.reset();
+                        }, function(error) {
+                            alert('There was an error sending your request: ' + error.text);
+                        });
                 });
-        });
+            }
+        }
     </script>
-</body>
-</html>
