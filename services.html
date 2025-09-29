@@ -3,47 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Services offered by TradeHax, including tech repair, phone customization, and more.">
-    <meta name="keywords" content="tech repair, phone customization, services, TradeHax">
-    <meta name="author" content="TradeHax">
     <title>Services | Apex Innovations | TradeHax</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .navbar-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(10px);
+        }
+    </style>
 </head>
-<body class="font-sans antialiased bg-lightGray text-techBlue">
+<body class="font-sans antialiased bg-gray-100 text-techBlue">
     <!-- Navigation Bar -->
     <nav class="navbar-sticky text-white py-4 px-4">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="/index.html" class="text-2xl font-bold">TradeHax</a>
+            <a href="index.html" class="text-2xl font-bold">TradeHax</a>
             <div class="flex space-x-6">
-                <a href="/index.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Home</a>
-                <a href="/services.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Services</a>
-                <a href="/portfolio.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Portfolio</a>
-                <a href="/contact.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Contact</a>
+                <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="services.html" class="hover:text-cyan-400 transition-colors">Services</a>
+                <a href="portfolio.html" class="hover:text-cyan-400 transition-colors">Portfolio</a>
+                <a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Services Page Content -->
-    <div class="page-content py-24 px-4">
-        <div class="container mx-auto text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Our Services</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">At TradeHax, we offer a wide range of services to meet your tech needs. Our expertise includes:</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-white rounded-lg p-6 shadow-lg">
-                    <h2 class="text-2xl font-bold text-techBlue mb-4">Tech Repair</h2>
-                    <p class="text-neutralGray">We specialize in repairing phones, tablets, and computers. Our experienced technicians can handle a variety of issues, from screen replacements to software troubleshooting.</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 shadow-lg">
-                    <h2 class="text-2xl font-bold text-techBlue mb-4">Phone Customization</h2>
-                    <p class="text-neutralGray">Customize your device with our software solutions, including custom ROMs and app installations. We ensure your device runs smoothly and meets your personal preferences.</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 shadow-lg">
-                    <h2 class="text-2xl font-bold text-techBlue mb-4">Remote Support</h2>
-                    <p class="text-neutralGray">Our remote support services allow us to assist you from anywhere. Using TeamViewer, we can troubleshoot and resolve issues directly on your device.</p>
+    <div class="page-content">
+        <section class="py-16 px-4">
+            <div class="container mx-auto max-w-3xl">
+                <h2 class="text-3xl font-bold mb-8 text-center">Our Services</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Remote Phone Repair</h3>
+                        <p>Screen, battery, and software fixes for all major brands. Remote support via TeamViewer.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Computer Repair & Customization</h3>
+                        <p>Hardware upgrades, OS installs, custom ROMs, and troubleshooting. Remote and shipped device options.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Web & App Development</h3>
+                        <p>Modern websites, e-commerce, and mobile apps for Android/iOS. Fintech solutions available.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Guitar Lessons</h3>
+                        <p>Online lessons for all levels. Dedicated site coming soon!</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 
     <footer class="bg-techBlue text-white py-8 px-4 text-center">
