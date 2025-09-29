@@ -3,86 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of TradeHax showcasing previous work, projects, and examples of tech repairs and customizations.">
-    <meta name="keywords" content="portfolio, tech repair, phone customization, TradeHax, projects">
-    <meta name="author" content="TradeHax">
     <title>Portfolio | Apex Innovations | TradeHax</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F3F4F6;
-            color: #0A2540;
-        }
-        .portfolio-item {
-            transition: transform 0.3s;
-        }
-        .portfolio-item:hover {
-            transform: scale(1.05);
+        .navbar-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(10px);
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased bg-gray-100 text-techBlue">
     <!-- Navigation Bar -->
     <nav class="navbar-sticky text-white py-4 px-4">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="/index.html" class="text-2xl font-bold">TradeHax</a>
+            <a href="index.html" class="text-2xl font-bold">TradeHax</a>
             <div class="flex space-x-6">
-                <a href="/index.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Home</a>
-                <a href="/services.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Services</a>
-                <a href="/portfolio.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Portfolio</a>
-                <a href="/contact.html" data-transition="true" class="hover:text-cyanAccent transition-colors">Contact</a>
+                <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="services.html" class="hover:text-cyan-400 transition-colors">Services</a>
+                <a href="portfolio.html" class="hover:text-cyan-400 transition-colors">Portfolio</a>
+                <a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Portfolio Section -->
-    <div class="container mx-auto py-24 px-4">
-        <h1 class="text-4xl font-bold text-center mb-12">Our Portfolio</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://source.unsplash.com/random/400x300/?tech,repair" alt="Project 1" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold">Project Title 1</h2>
-                    <p class="text-gray-600">Description of the project, highlighting the tech repair or customization done.</p>
+    <div class="page-content">
+        <section class="py-16 px-4">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl font-bold mb-8 text-center">Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Custom ROMs & OS Installs</h3>
+                        <p>Over 300+ devices customized for clients worldwide.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Websites & Apps</h3>
+                        <p>Fintech, e-commerce, and business sites built with modern tech.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Remote Repairs</h3>
+                        <p>500+ successful remote sessions via TeamViewer.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Guitar Lessons</h3>
+                        <p>Online lessons for beginners and advanced players.</p>
+                    </div>
                 </div>
             </div>
-            <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://source.unsplash.com/random/400x300/?tech,customization" alt="Project 2" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold">Project Title 2</h2>
-                    <p class="text-gray-600">Description of the project, highlighting the tech repair or customization done.</p>
-                </div>
-            </div>
-            <div class="portfolio-item bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://source.unsplash.com/random/400x300/?tech,service" alt="Project 3" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold">Project Title 3</h2>
-                    <p class="text-gray-600">Description of the project, highlighting the tech repair or customization done.</p>
-                </div>
-            </div>
-            <!-- Add more portfolio items as needed -->
-        </div>
+        </section>
     </div>
 
     <footer class="bg-techBlue text-white py-8 px-4 text-center">
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
-
-    <script>
-        // GSAP Animations for Portfolio Page
-        gsap.from(".portfolio-item", {
-            opacity: 0,
-            y: 50,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: "power2.out"
-        });
-    </script>
 </body>
 </html>
