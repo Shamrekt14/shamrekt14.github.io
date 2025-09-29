@@ -1,3 +1,4 @@
+<!-- filepath: c:\Users\Guest1\OneDrive\Documents\GitHub\shamrekt14.github.io\index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,7 +147,7 @@
     <script>
         // Initialize EmailJS (for Contact page)
         (function(){
-            emailjs.init("JRD9In1aJZxgkNWkU"); // <-- Your EmailJS Public Key
+            emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your EmailJS Public Key
         })();
 
         // Page Transition Handler
@@ -174,6 +175,7 @@
                                 pageContent.innerHTML = newContent;
                                 gsap.fromTo(pageContent, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.in" });
                                 
+
                                 // Re-initialize scripts for new content
                                 if (href.includes('portfolio.html')) {
                                     initializeSwiper();
@@ -257,7 +259,7 @@
                         service: form.querySelector('#service').value,
                         message: form.querySelector('#message').value
                     };
-                    emailjs.send('service_q493w5j', 'template_4grtmzp', formData)
+                    emailjs.send('YOUR_EMAILJS_SERVICE_ID', 'YOUR_EMAILJS_TEMPLATE_ID', formData)
                         .then(function(response) {
                             alert('Your request has been sent successfully!');
                             form.reset();
