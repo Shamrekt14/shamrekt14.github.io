@@ -1,62 +1,60 @@
 <!DOCTYPE html>
-+            const statusEl = document.getElementById('form-status');
-+            statusEl.textContent = 'Sending...';
-+
-+            try {
-+                const res = await fetch('/api/send', {
-+                    method: 'POST',
-+                    headers: { 'Content-Type': 'application/json' },
-+                    body: JSON.stringify(formData)
-+                });
-+                let body = null;
-+                try { body = await res.json(); } catch (_) { /* ignore */ }
-+
-+                if (res.ok) {
-+                    statusEl.textContent = 'Your request has been sent successfully!';
-+                    form.reset();
-+                } else {
-+                    console.error('Server responded with error', res.status, body);
-+                    statusEl.textContent = 'There was an error sending your request: ' + (body && body.error ? body.error : res.statusText);
-+                    const fallback = document.createElement('p');
-+                    fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
-+                    statusEl.appendChild(fallback);
-+                }
-+            } catch (err) {
-+                console.error('Network or server error', err);
-+                statusEl.textContent = 'Network error: ' + (err.message || err);
-+                const fallback = document.createElement('p');
-+                fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
-+                statusEl.appendChild(fallback);
-+            }
-+        });
-+    </script>
-+
-+</body>
-+
-+</html>
-+
-    <footer class="bg-techBlue text-white py-8 px-4 text-center">
-        <p>&copy; 2025 TradeHax. All rights reserved.</p>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — TradeHax</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--techBlue:#0ea5e9}
+        body{font-family:Inter,system-ui,Arial, sans-serif;margin:0;padding:0;background:#fff;color:#111}
+        .container{max-width:720px;margin:48px auto;padding:24px}
+        label{display:block;margin-top:12px;font-weight:600}
+        input,textarea,select{width:100%;padding:10px;margin-top:6px;border:1px solid #ddd;border-radius:6px}
+        button{margin-top:12px;padding:10px 16px;background:var(--techBlue);color:#fff;border:0;border-radius:6px;cursor:pointer}
+        #form-status{margin-top:12px;color:#333}
+        footer{margin-top:48px;text-align:center;color:#666;padding:24px 0}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact TradeHax</h1>
+        <form id="contact-form">
+            <label for="name">Name</label>
+            <input id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="service">Service</label>
+            <select id="service" name="service">
+                <option>General</option>
+                <option>Partnership</option>
+                <option>Support</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Send message</button>
+            <div id="form-status" aria-live="polite"></div>
+        </form>
+
+        <p>If the form fails you can always email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.</p>
+    </div>
+
+    <footer>
+        &copy; 2025 TradeHax
     </footer>
 
-    <!-- JavaScript for EmailJS -->
     <script>
-        (function(){
-            try{
-                if(window.emailjs){
-                    emailjs.init("JRD9In1aJZxgkNWkU"); // Your EmailJS Public Key
-                    console.info('EmailJS initialized');
-                } else {
-                    console.warn('EmailJS script not loaded (window.emailjs not present)');
-                }
-            }catch(err){
-                console.error('EmailJS init error', err);
-            }
-        })();
-
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+    (function(){
+        const API = 'https://shamrekt14github-4hfgiq163-owner-7282s-projects.vercel.app/api/send';
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async function(e){
             e.preventDefault();
-            const form = e.target;
+            const statusEl = document.getElementById('form-status');
+            statusEl.textContent = 'Sending...';
             const formData = {
                 name: form.name.value,
                 email: form.email.value,
@@ -64,36 +62,34 @@
                 message: form.message.value
             };
 
-            const statusEl = document.getElementById('form-status');
-            statusEl.textContent = 'Sending...';
+            try{
+                const res = await fetch(API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+                let body = null;
+                try{ body = await res.json(); }catch(e){/* ignore */}
 
-            if(window.emailjs && emailjs.send){
-                emailjs.send('service_irish', 'template_ju13k1i', formData)
-                    .then(function(response){
-                        console.log('EmailJS success', response);
-                        statusEl.textContent = 'Your request has been sent successfully!';
-                        form.reset();
-                    })
-                    .catch(function(error){
-                        console.error('EmailJS error', error);
-                        const msg = error && (error.text || error.message) ? (error.text || error.message) : JSON.stringify(error);
-                        statusEl.textContent = 'There was an error sending your request: ' + msg;
-                        const fallback = document.createElement('p');
-                        fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
-                        statusEl.appendChild(fallback);
-                    });
-            } else {
-                const errMsg = 'EmailJS library not available. Please ensure the CDN script loaded.';
-                console.error(errMsg);
-                statusEl.textContent = errMsg + ' You can email us at owner@tradehax.net';
+                if(res.ok){
+                    statusEl.textContent = 'Your request has been sent successfully!';
+                    form.reset();
+                } else {
+                    console.error('send error', res.status, body);
+                    statusEl.textContent = 'Error sending message: ' + (body && body.error ? body.error : res.statusText);
+                    const fallback = document.createElement('p');
+                    fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
+                    statusEl.appendChild(fallback);
+                }
+            }catch(err){
+                console.error('Network error', err);
+                statusEl.textContent = 'Network error: ' + (err.message || err);
+                const fallback = document.createElement('p');
+                fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
+                statusEl.appendChild(fallback);
             }
         });
+    })();
     </script>
-+
-+
-+</body>
-+
-+
-+</html>
-+
-+
+</body>
+</html>
