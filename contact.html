@@ -1,79 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Apex Innovations by TradeHax for inquiries, consultations, or service requests.">
-    <meta name="keywords" content="contact, inquiries, consultations, TradeHax">
-    <meta name="author" content="TradeHax">
-    <title>Contact | Apex Innovations | TradeHax</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <style>
-        .navbar-sticky {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(10, 37, 64, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F3F4F6;
-            color: #0A2540;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar-sticky text-white py-4 px-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">TradeHax</a>
-            <div class="flex space-x-6">
-                <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
-                <a href="services.html" class="hover:text-cyan-400 transition-colors">Services</a>
-                <a href="portfolio.html" class="hover:text-cyan-400 transition-colors">Portfolio</a>
-                <a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Contact Form Section -->
-    <div class="container mx-auto py-24 px-4 page-content">
-        <h1 class="text-4xl font-bold text-center mb-8">Contact Us</h1>
-        <p class="text-lg text-center mb-12">We'd love to hear from you! Please fill out the form below to get in touch.</p>
-        <form id="contact-form" class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-semibold mb-2">Name</label>
-                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded-lg">
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-semibold mb-2">Email</label>
-                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded-lg">
-            </div>
-            <div class="mb-4">
-                <label for="service" class="block text-sm font-semibold mb-2">Service Interested In</label>
-                <select id="service" name="service" required class="w-full px-4 py-2 border rounded-lg">
-                    <option value="">Select a service</option>
-                    <option value="Phone Repair">Phone Repair</option>
-                    <option value="Computer Repair">Computer Repair</option>
-                    <option value="Customization">Customization</option>
-                    <option value="Web Development">Web Development</option>
-                    <option value="Mobile App Development">Mobile App Development</option>
-                    <option value="Guitar Lessons">Guitar Lessons</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            <div class="mb-4">
-                <label for="message" class="block text-sm font-semibold mb-2">Message</label>
-                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border rounded-lg"></textarea>
-            </div>
-            <button type="submit" class="bg-cyan-400 hover:bg-cyan-500 text-techBlue px-4 py-2 rounded-lg font-semibold transition-all duration-300">Send Message</button>
-            <div id="form-status" class="mt-4 text-center"></div>
-        </form>
-    </div>
-
++            const statusEl = document.getElementById('form-status');
++            statusEl.textContent = 'Sending...';
++
++            try {
++                const res = await fetch('/api/send', {
++                    method: 'POST',
++                    headers: { 'Content-Type': 'application/json' },
++                    body: JSON.stringify(formData)
++                });
++                let body = null;
++                try { body = await res.json(); } catch (_) { /* ignore */ }
++
++                if (res.ok) {
++                    statusEl.textContent = 'Your request has been sent successfully!';
++                    form.reset();
++                } else {
++                    console.error('Server responded with error', res.status, body);
++                    statusEl.textContent = 'There was an error sending your request: ' + (body && body.error ? body.error : res.statusText);
++                    const fallback = document.createElement('p');
++                    fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
++                    statusEl.appendChild(fallback);
++                }
++            } catch (err) {
++                console.error('Network or server error', err);
++                statusEl.textContent = 'Network error: ' + (err.message || err);
++                const fallback = document.createElement('p');
++                fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
++                statusEl.appendChild(fallback);
++            }
++        });
++    </script>
++
++</body>
++
++</html>
++
     <footer class="bg-techBlue text-white py-8 px-4 text-center">
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
@@ -81,7 +42,16 @@
     <!-- JavaScript for EmailJS -->
     <script>
         (function(){
-            emailjs.init("JRD9In1aJZxgkNWkU"); // Your EmailJS Public Key
+            try{
+                if(window.emailjs){
+                    emailjs.init("JRD9In1aJZxgkNWkU"); // Your EmailJS Public Key
+                    console.info('EmailJS initialized');
+                } else {
+                    console.warn('EmailJS script not loaded (window.emailjs not present)');
+                }
+            }catch(err){
+                console.error('EmailJS init error', err);
+            }
         })();
 
         document.getElementById('contact-form').addEventListener('submit', function(e) {
@@ -93,14 +63,37 @@
                 service: form.service.value,
                 message: form.message.value
             };
-            emailjs.send('service_q493w5j', 'template_4grtmzp', formData)
-                .then(function(response) {
-                    document.getElementById('form-status').textContent = 'Your request has been sent successfully!';
-                    form.reset();
-                }, function(error) {
-                    document.getElementById('form-status').textContent = 'There was an error sending your request: ' + error.text;
-                });
+
+            const statusEl = document.getElementById('form-status');
+            statusEl.textContent = 'Sending...';
+
+            if(window.emailjs && emailjs.send){
+                emailjs.send('service_irish', 'template_ju13k1i', formData)
+                    .then(function(response){
+                        console.log('EmailJS success', response);
+                        statusEl.textContent = 'Your request has been sent successfully!';
+                        form.reset();
+                    })
+                    .catch(function(error){
+                        console.error('EmailJS error', error);
+                        const msg = error && (error.text || error.message) ? (error.text || error.message) : JSON.stringify(error);
+                        statusEl.textContent = 'There was an error sending your request: ' + msg;
+                        const fallback = document.createElement('p');
+                        fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
+                        statusEl.appendChild(fallback);
+                    });
+            } else {
+                const errMsg = 'EmailJS library not available. Please ensure the CDN script loaded.';
+                console.error(errMsg);
+                statusEl.textContent = errMsg + ' You can email us at owner@tradehax.net';
+            }
         });
     </script>
-</body>
-</html>
++
++
++</body>
++
++
++</html>
++
++

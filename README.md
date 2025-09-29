@@ -39,3 +39,24 @@ shamrekt14.github.io
 
 ## Contribution
 Feel free to fork the repository and submit pull requests for any improvements or bug fixes.
+
+## Deploying the contact endpoint to Vercel
+
+This project includes a serverless function at `api/send.js` which forwards contact form submissions to EmailJS securely (using your private key on the server).
+
+1. Install the Vercel CLI (optional):
+
+   npm i -g vercel
+
+2. From the repo root run `vercel` and follow the prompts to deploy.
+
+3. In the Vercel dashboard for the project, set these Environment Variables:
+
+   - EMAILJS_PRIVATE_KEY (your private key)
+   - EMAILJS_USER_ID (JRD9In1aJZxgkNWkU)
+   - EMAILJS_SERVICE_ID (service_irish)
+   - EMAILJS_TEMPLATE_ID (template_ju13k1i)
+
+4. After deployment the endpoint will be available at: `https://<your-project>.vercel.app/api/send`.
+
+5. Update `contact.html` to POST to the deployed endpoint if the site will be hosted separately.
