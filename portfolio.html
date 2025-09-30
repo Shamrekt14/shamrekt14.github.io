@@ -1,67 +1,105 @@
+<!-- Updated portfolio.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Apex Innovations | TradeHax</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root{ --techBlue: #0A2540; --cyan: #06b6d4; }
-        .text-techBlue { color: var(--techBlue); }
-        .bg-techBlue { background-color: var(--techBlue); }
-        .navbar-sticky {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(10, 37, 64, 0.95);
-            backdrop-filter: blur(10px);
-        }
-    </style>
+    <title>Portfolio | TradeHax</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet">
 </head>
-<body class="font-sans antialiased bg-gray-100 text-techBlue">
-    <!-- Navigation Bar -->
-    <nav class="navbar-sticky text-white py-4 px-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">TradeHax</a>
-            <div class="flex space-x-6">
-                <a href="index.html" class="hover:text-cyan-400 transition-colors">Home</a>
-                <a href="services.html" class="hover:text-cyan-400 transition-colors">Services</a>
-                <a href="portfolio.html" class="hover:text-cyan-400 transition-colors">Portfolio</a>
-                <a href="contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
-            </div>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-2xl font-bold">TradeHax</h1>
+            <nav class="space-x-4">
+                <a href="/" class="hover:underline">Home</a>
+                <a href="/services.html" class="hover:underline">Services</a>
+                <a href="/portfolio.html" class="hover:underline">Portfolio</a>
+                <a href="/contact.html" class="hover:underline">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Portfolio Section -->
-    <div class="page-content">
-        <section class="py-16 px-4">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-3xl font-bold mb-8 text-center">Portfolio</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Custom ROMs & OS Installs</h3>
-                        <p>Over 300+ devices customized for clients worldwide.</p>
+    <section class="portfolio py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Portfolio - Showcasing IT Expertise</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-white p-6 rounded shadow">
+                        <img src="https://placehold.co/600x400?text=Custom+ROM" alt="Custom ROM" class="mb-4 rounded">
+                        <h3 class="text-xl font-bold mb-2">Custom ROMs & OS Installs</h3>
+                        <p>Over 300+ devices customized worldwide. Used Android AOSP, Java, C++ for performance optimizations.</p>
+                        <pre class="bg-gray-200 p-2 mt-4 overflow-auto"><code>// Example code snippet for custom ROM boot script
+function optimizeBoot() {
+  console.log('Optimizing device boot...');
+  // Custom logic here
+}</code></pre>
+                        <a href="#" class="text-blue-600 hover:underline mt-4 block">View GitHub Repo</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Websites & Apps</h3>
-                        <p>Fintech, e-commerce, and business sites built with modern tech.</p>
+                    <div class="swiper-slide bg-white p-6 rounded shadow">
+                        <img src="https://placehold.co/600x400?text=Web+App" alt="Websites & Apps" class="mb-4 rounded">
+                        <h3 class="text-xl font-bold mb-2">Websites & Apps</h3>
+                        <p>Fintech, e-commerce sites with React, Node.js, MongoDB. Secure and scalable solutions.</p>
+                        <pre class="bg-gray-200 p-2 mt-4 overflow-auto"><code>// Example Node.js API endpoint
+app.get('/api/transactions', (req, res) => {
+  res.json({ success: true, data: [] });
+});</code></pre>
+                        <a href="#" class="text-blue-600 hover:underline mt-4 block">Live Demo</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Remote Repairs</h3>
-                        <p>500+ successful remote sessions via TeamViewer.</p>
+                    <div class="swiper-slide bg-white p-6 rounded shadow">
+                        <img src="https://placehold.co/600x400?text=Remote+Repair" alt="Remote Repairs" class="mb-4 rounded">
+                        <h3 class="text-xl font-bold mb-2">Remote Repairs</h3>
+                        <p>500+ sessions via TeamViewer. Custom scripts for automated diagnostics.</p>
+                        <pre class="bg-gray-200 p-2 mt-4 overflow-auto"><code># Example Python diagnostic script
+import os
+print(os.uname())</code></pre>
+                        <a href="#" class="text-blue-600 hover:underline mt-4 block">More Details</a>
                     </div>
-                    <div class="bg-white rounded-lg shadow p-6">
-                        <h3 class="text-xl font-semibold mb-2 text-cyan-400">Guitar Lessons</h3>
-                        <p>Online lessons for beginners and advanced players.</p>
+                    <div class="swiper-slide bg-white p-6 rounded shadow">
+                        <img src="https://placehold.co/600x400?text=Guitar+Lessons" alt="Guitar Lessons" class="mb-4 rounded">
+                        <h3 class="text-xl font-bold mb-2">Guitar Lessons</h3>
+                        <p>Online platform with interactive video and progress tracking using Vue.js.</p>
+                        <pre class="bg-gray-200 p-2 mt-4 overflow-auto"><code>&lt;!-- Example Vue component --&gt;
+&lt;template&gt;
+  &lt;div&gt;Play Chord&lt;/div&gt;
+&lt;/template&gt;</code></pre>
+                        <a href="#" class="text-blue-600 hover:underline mt-4 block">Coming Soon</a>
                     </div>
                 </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <footer class="bg-techBlue text-white py-8 px-4 text-center">
+    <footer class="bg-blue-800 text-white py-4 text-center">
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Initialize Swiper for carousel
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: 1,
+            breakpoints: {
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+            }
+        });
+
+        // GSAP animation
+        gsap.from(".swiper-slide", { duration: 0.5, x: 100, opacity: 0, stagger: 0.2 });
+    </script>
 </body>
 </html>
