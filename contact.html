@@ -1,95 +1,80 @@
+<!-- Updated contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact — TradeHax</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root{--techBlue:#0ea5e9}
-        body{font-family:Inter,system-ui,Arial, sans-serif;margin:0;padding:0;background:#fff;color:#111}
-        .container{max-width:720px;margin:48px auto;padding:24px}
-        label{display:block;margin-top:12px;font-weight:600}
-        input,textarea,select{width:100%;padding:10px;margin-top:6px;border:1px solid #ddd;border-radius:6px}
-        button{margin-top:12px;padding:10px 16px;background:var(--techBlue);color:#fff;border:0;border-radius:6px;cursor:pointer}
-        #form-status{margin-top:12px;color:#333}
-        footer{margin-top:48px;text-align:center;color:#666;padding:24px 0}
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | TradeHax</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Contact TradeHax</h1>
-        <form id="contact-form">
-            <label for="name">Name</label>
-            <input id="name" name="name" required />
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-800 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-2xl font-bold">TradeHax</h1>
+            <nav class="space-x-4">
+                <a href="/" class="hover:underline">Home</a>
+                <a href="/services.html" class="hover:underline">Services</a>
+                <a href="/portfolio.html" class="hover:underline">Portfolio</a>
+                <a href="/contact.html" class="hover:underline">Contact</a>
+            </nav>
+        </div>
+    </header>
 
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
+    <section class="contact py-12">
+        <div class="container mx-auto px-4 max-w-md">
+            <h2 class="text-3xl font-bold text-center mb-8">Contact TradeHax</h2>
+            <form id="contact-form" class="bg-white p-8 rounded shadow">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-600" required>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-600" required>
+                </div>
+                <div class="mb-4">
+                    <label for="service" class="block text-gray-700 mb-2">Service</label>
+                    <select id="service" name="service" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-600" required>
+                        <option value="general">General</option>
+                        <option value="partnership">Partnership</option>
+                        <option value="support">Support</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 mb-2">Message</label>
+                    <textarea id="message" name="message" class="w-full px-4 py-2 border rounded focus:outline-none focus:border-blue-600" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send Message</button>
+            </form>
+            <p class="text-center mt-4">If the form fails, email us at <a href="mailto:owner@tradehax.net" class="text-blue-600 hover:underline">owner@tradehax.net</a>.</p>
+        </div>
+    </section>
 
-            <label for="service">Service</label>
-            <select id="service" name="service">
-                <option>General</option>
-                <option>Partnership</option>
-                <option>Support</option>
-            </select>
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
-
-            <button type="submit">Send message</button>
-            <div id="form-status" aria-live="polite"></div>
-        </form>
-
-        <p>If the form fails you can always email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.</p>
-    </div>
-
-    <footer>
-        &copy; 2025 TradeHax
+    <footer class="bg-blue-800 text-white py-4 text-center">
+        <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
 
     <script>
-    (function(){
-        const API = 'https://shamrekt14github-4hfgiq163-owner-7282s-projects.vercel.app/api/send';
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', async function(e){
-            e.preventDefault();
-            const statusEl = document.getElementById('form-status');
-            statusEl.textContent = 'Sending...';
-            const formData = {
-                name: form.name.value,
-                email: form.email.value,
-                service: form.service.value,
-                message: form.message.value
-            };
+        (function() {
+            emailjs.init("JRD9In1aJZxgkNWkU"); // Public User ID
+        })();
 
-            try{
-                const res = await fetch(API, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            emailjs.sendForm('service_irish', 'template_ju13k1i', this)
+                .then(() => {
+                    alert('Message sent successfully!');
+                }, (error) => {
+                    alert('Failed to send message. Please try again.');
+                    console.log('FAILED...', error);
                 });
-                let body = null;
-                try{ body = await res.json(); }catch(e){/* ignore */}
-
-                if(res.ok){
-                    statusEl.textContent = 'Your request has been sent successfully!';
-                    form.reset();
-                } else {
-                    console.error('send error', res.status, body);
-                    statusEl.textContent = 'Error sending message: ' + (body && body.error ? body.error : res.statusText);
-                    const fallback = document.createElement('p');
-                    fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
-                    statusEl.appendChild(fallback);
-                }
-            }catch(err){
-                console.error('Network error', err);
-                statusEl.textContent = 'Network error: ' + (err.message || err);
-                const fallback = document.createElement('p');
-                fallback.innerHTML = 'If this fails, email us directly at <a href="mailto:owner@tradehax.net">owner@tradehax.net</a>.';
-                statusEl.appendChild(fallback);
-            }
         });
-    })();
+
+        // GSAP animation for form
+        gsap.from("#contact-form > div", { duration: 0.5, y: 20, opacity: 0, stagger: 0.1 });
     </script>
 </body>
 </html>
