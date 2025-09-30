@@ -1,4 +1,3 @@
-<!-- Updated contact.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,29 +51,44 @@
         </div>
     </section>
 
+    <!-- Small counter section (mostly for you) -->
+    <section class="counter py-4 text-center text-sm text-gray-500">
+        <div class="container mx-auto px-4">
+            <p id="visit-counter">Page Visits: 0</p>
+        </div>
+    </section>
+
     <footer class="bg-blue-800 text-white py-4 text-center">
         <p>&copy; 2025 TradeHax. All rights reserved.</p>
     </footer>
 
     <script>
+        // EmailJS client-side hookup
         (function() {
-            emailjs.init("JRD9In1aJZxgkNWkU"); // Public User ID
+            emailjs.init('JRD9In1aJZxgkNWkU'); // Your public user ID
         })();
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            emailjs.sendForm('service_irish', 'template_ju13k1i', this)
+            emailjs.sendForm('service_irish', 'template_ju13k1i', this) // Your service and template IDs
                 .then(() => {
                     alert('Message sent successfully!');
+                    console.log('Email sent successfully');
                 }, (error) => {
                     alert('Failed to send message. Please try again.');
-                    console.log('FAILED...', error);
+                    console.error('EmailJS error:', error);
                 });
         });
 
         // GSAP animation for form
         gsap.from("#contact-form > div", { duration: 0.5, y: 20, opacity: 0, stagger: 0.1 });
+
+        // Simple visit counter using localStorage (increments per browser/session)
+        let visits = localStorage.getItem('pageVisits') || 0;
+        visits = parseInt(visits) + 1;
+        localStorage.setItem('pageVisits', visits);
+        document.getElementById('visit-counter').textContent = `Page Visits: ${visits}`;
     </script>
 </body>
 </html>
